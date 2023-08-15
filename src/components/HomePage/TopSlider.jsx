@@ -4,13 +4,13 @@ function TopSlider() {
   return (
     <section className="bg-cover bg-center bg-no-repeat bg-[url(/slideshow.jpeg)]">
       <div
-        className="h-[750px] flex items-center justify-center p-20"
+        className="h-[560px] flex items-center justify-center p-8 md:p-20 lg:h-[750px]"
         style={{
           backgroundImage: "radial-gradient(rgb(0 0 0 / 65%), transparent)",
         }}
       >
-        <div className="md:w-[760px] text-center text-white translate-y-[37%]">
-          <h1 className="text-[55px] font-bold leading-tight">
+        <div className="text-center text-white translate-y-[56px] md:w-[760px] lg:w-[820px] lg:translate-y-[37%]">
+          <h1 className="text-[36px] font-bold leading-tight lg:text-[55px]">
             RELIABLE TRANSFER AGENCY IN VIETNAM
           </h1>
           <p className="text-lg mt-6">
