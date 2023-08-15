@@ -1,15 +1,17 @@
-import PanelContact from "@/components/HomePage/PanelContact";
-import TopSlider from "@/components/HomePage/TopSlider";
-import TravelRoutes from "@/components/HomePage/TravelRoutes";
+import PanelContact from "@/components/HomePage/PanelContact"
+import TopSlider from "@/components/HomePage/TopSlider"
+import TravelRoutes from "@/components/HomePage/TravelRoutes"
 
 export default function Home() {
   return (
     <main className="">
       <TopSlider />
-      <TravelRoutes data={data} />
-      <PanelContact />
+      <div className="bg-topography">
+        <TravelRoutes data={data} />
+        <PanelContact />
+      </div>
     </main>
-  );
+  )
 }
 
 const data = [
@@ -29,4 +31,4 @@ const data = [
     journeyTime: 6.5,
     url: "#",
   },
-];
+]

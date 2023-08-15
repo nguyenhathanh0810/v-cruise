@@ -9,7 +9,7 @@ function TopSlider() {
           backgroundImage: "radial-gradient(rgb(0 0 0 / 65%), transparent)",
         }}
       >
-        <div className="md:w-[760px] text-center text-white">
+        <div className="md:w-[760px] text-center text-white translate-y-[37%]">
           <h1 className="text-[55px] font-bold leading-tight">
             RELIABLE TRANSFER AGENCY IN VIETNAM
           </h1>

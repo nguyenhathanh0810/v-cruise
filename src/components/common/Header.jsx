@@ -9,7 +9,7 @@ import IconXTwitter from "../icons/IconXTwitter"
 
 function Header() {
   return (
-    <header className="xl:px-[60px]">
+    <header className="fixed inset-x-0 xl:px-[60px]">
       <div className="flex h-10 border-b border-[#ffffff80] text-white">
         <div className="flex flex-grow gap-6 items-center">
           <div className="flex items-center">
@@ -42,8 +42,8 @@ function Header() {
           </Link>
         </div>
       </div>
-      <nav className="py-2 border-b border-[#ffffff80] text-white">
-        <ul className="flex gap-8 items-center justify-center">
+      <nav className="py-4 border-b border-[#ffffff80] text-white">
+        <ul className="flex gap-12 items-center justify-center">
           <li>
             <Link href="#">
               <span className="uppercase text-lg font-semibold">
@@ -54,7 +54,7 @@ function Header() {
           <li>
             <Link href="#" className="py-2">
               <Image
-                src="/logo.png"
+                src="/logo-mandarin.png"
                 alt="Cruise Agency"
                 width={96}
                 height={96}

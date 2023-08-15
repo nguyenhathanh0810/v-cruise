@@ -15,6 +15,29 @@ module.exports = {
       fontFamily: {
         sans: ["var(--font-noto-sans)"],
       },
+      colors: {
+        primary: {
+          DEFAULT: "#f58c36",
+          analogous: {
+            "by-2": "#f7c95f",
+            "by-3": "#f5623d",
+          },
+          complementary: {
+            "by-3": "#764e2d",
+          },
+          shades: {
+            "by-1": "#e87b21",
+            "by-3": "#6B4729",
+            "by-4": "#2c231c",
+          },
+          square: {
+            "by-2": "#BBDFFC",
+          },
+          triadic: {
+            "by-4": "#57466D",
+          },
+        },
+      },
     },
   },
   plugins: [],

@@ -1,12 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url(./backgrounds.css);
 
-body {
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer base {
+  body {
+    @apply text-primary-shades-by-4;
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgb(var(--background-end-rgb))
+      )
+      rgb(var(--background-start-rgb));
+  }
+}
+
+@layer base {
+  a[href] {
+    @apply hover:text-primary transition-colors duration-150;
+  }
 }

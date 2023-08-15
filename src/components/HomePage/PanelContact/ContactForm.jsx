@@ -1,15 +1,15 @@
-"use client";
-import React from "react";
+"use client"
+import React from "react"
 
 function ContactForm() {
   function handleSubmission(e) {
-    e.preventDefault();
+    e.preventDefault()
 
-    const formData = new FormData(e.target);
-    console.log("Fullname", formData.get("contact-fullname"));
-    console.log("Email", formData.get("contact-email"));
-    console.log("Idea", formData.get("contact-idea"));
-    return false;
+    const formData = new FormData(e.target)
+    console.log("Fullname", formData.get("contact-fullname"))
+    console.log("Email", formData.get("contact-email"))
+    console.log("Idea", formData.get("contact-idea"))
+    return false
   }
 
   return (
@@ -22,7 +22,7 @@ function ContactForm() {
               name="contact-fullname"
               id="contact-fullname"
               placeholder="Your fullname"
-              className="block w-full px-4 py-3 bg-white border border-slate-300 rounded-sm shadow-sm focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
+              className="block w-full px-4 py-3 bg-white border border-primary-square-by-2 rounded-sm shadow-sm focus:outline-none focus:border-primary-shades-by-1 focus:ring-1 focus:ring-primary"
             />
           </div>
           <div className="col">
@@ -31,7 +31,7 @@ function ContactForm() {
               name="contact-email"
               id="contact-email"
               placeholder="Your email"
-              className="block w-full px-4 py-3 bg-white border border-slate-300 rounded-sm shadow-sm focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
+              className="block w-full px-4 py-3 bg-white border border-primary-square-by-2 rounded-sm shadow-sm focus:outline-none focus:border-primary-shades-by-1 focus:ring-1 focus:ring-primary"
             />
           </div>
           <div className="col-span-2">
@@ -41,13 +41,13 @@ function ContactForm() {
               id="contact-idea"
               rows={5}
               placeholder="Tell us what kind of experience you're looking for"
-              className="block w-full px-4 py-3 bg-white border border-slate-300 rounded-sm shadow-sm focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 resize-none"
+              className="block w-full px-4 py-3 bg-white border border-primary-square-by-2 rounded-sm shadow-sm focus:outline-none focus:border-primary-shades-by-1 focus:ring-1 focus:ring-primary"
             />
           </div>
           <div className="col-span-2 text-center">
             <button
               type="submit"
-              className="min-w-[220px] bg-violet-500 hover:bg-violet-600 focus:outline-none focus:ring focus:ring-violet-300 active:bg-violet-700 px-6 py-3 text-sm rounded-sm font-semibold text-white"
+              className="min-w-[220px] bg-primary hover:bg-primary-shades-by-1 focus:outline-none focus:ring focus:ring-primary-analogous-by-2 active:bg-primary-shades-by-1 px-6 py-3 text-sm rounded-sm font-semibold text-white"
             >
               SEND
             </button>
@@ -55,7 +55,7 @@ function ContactForm() {
         </div>
       </form>
     </div>
-  );
+  )
 }
 
-export default ContactForm;
+export default ContactForm

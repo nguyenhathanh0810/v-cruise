@@ -1,14 +1,16 @@
-import Link from "next/link";
-import React from "react";
+import Link from "next/link"
+import React from "react"
 
 function TravelRoutes(props) {
-  const { data } = props;
+  const { data } = props
 
   return (
     <section className="py-12 xl:px-[60px]">
       <div className="text-center mb-12">
-        <p className="text-lg text-slate-600">Lorem ipsum dolor</p>
-        <h1 className="text-[50px] font-bold">ULTIMATE TRAVEL EXPERIENCE</h1>
+        <p className="text-lg text-primary-triadic-by-4">Lorem ipsum dolor</p>
+        <h1 className="text-[50px] font-bold text-primary">
+          ULTIMATE TRAVEL EXPERIENCE
+        </h1>
       </div>
       <div>
         <div className="grid grid-cols-1 gap-4 px-6">
@@ -19,7 +21,7 @@ function TravelRoutes(props) {
         </div>
       </div>
     </section>
-  );
+  )
 }
 
 function RouteCard({ route, reversed }) {
@@ -32,21 +34,28 @@ function RouteCard({ route, reversed }) {
         {" "}
       </div>
     </div>
-  );
+  )
   const Details = () => (
     <div className="flex items-center p-12">
       <div className="w-full">
-        <div className="text-lg text-slate-600">Journey takes: {route.journeyTime} hours</div>
-        <div className="text-[29px] uppercase font-bold leading-tight">{route.caption}</div>
-        <p className="text-sm text-slate-600 ellipsis line-clamp-4 mt-2">
-          {route.summary}
-        </p>
+        <div className="text-lg text-primary-triadic-by-4">
+          Journey takes: {route.journeyTime} hours
+        </div>
+        <div className="text-[29px] uppercase font-bold leading-tight">
+          {route.caption}
+        </div>
+        <p className="text-sm ellipsis line-clamp-4 mt-2">{route.summary}</p>
         <div className="mt-6">
-          <Link className="text-lg font-bold" href={route.url}>READ MORE</Link>
+          <Link
+            className="text-lg font-bold text-primary-triadic-by-4"
+            href={route.url}
+          >
+            READ MORE
+          </Link>
         </div>
       </div>
     </div>
-  );
+  )
 
   return (
     <div className="grid grid-cols-2">
@@ -62,7 +71,7 @@ function RouteCard({ route, reversed }) {
         </>
       )}
     </div>
-  );
+  )
 }
 
-export default TravelRoutes;
+export default TravelRoutes
