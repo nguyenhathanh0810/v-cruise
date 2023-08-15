@@ -1,11 +1,11 @@
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
-import IconPhone from "../icons/IconPhone";
-import IconEnvelop from "../icons/IconEnvelop";
-import IconFacebook from "../icons/IconFacebook";
-import IconInstagram from "../icons/IconInstagram";
-import IconXTwitter from "../icons/IconXTwitter";
+import Image from "next/image"
+import Link from "next/link"
+import React from "react"
+import IconPhone from "../icons/IconPhone"
+import IconEnvelop from "../icons/IconEnvelop"
+import IconFacebook from "../icons/IconFacebook"
+import IconInstagram from "../icons/IconInstagram"
+import IconXTwitter from "../icons/IconXTwitter"
 
 function Header() {
   return (
@@ -42,8 +42,8 @@ function Header() {
           </Link>
         </div>
       </div>
-      <nav className="flex gap-8 items-center justify-center">
-        <ul className="border-b border-[#ffffff80] text-white">
+      <nav className="py-2 border-b border-[#ffffff80] text-white">
+        <ul className="flex gap-8 items-center justify-center">
           <li>
             <Link href="#">
               <span className="uppercase text-lg font-semibold">
@@ -71,7 +71,7 @@ function Header() {
         </ul>
       </nav>
     </header>
-  );
+  )
 }
 
-export default Header;
+export default Header

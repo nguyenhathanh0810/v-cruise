@@ -1,8 +1,8 @@
-import React from "react";
+import React from "react"
 
 function TopSlider() {
   return (
-    <section className="bg-indigo-500 bg-cover bg-center bg-no-repeat bg-[url(/slideshow.jpeg)]">
+    <section className="bg-cover bg-center bg-no-repeat bg-[url(/slideshow.jpeg)]">
       <div
         className="h-[750px] flex items-center justify-center p-20"
         style={{
@@ -22,7 +22,7 @@ function TopSlider() {
         </div>
       </div>
     </section>
-  );
+  )
 }
 
-export default TopSlider;
+export default TopSlider
