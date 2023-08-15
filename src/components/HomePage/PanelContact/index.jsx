@@ -3,7 +3,7 @@ import ContactForm from "./ContactForm"
 
 function PanelContact() {
   return (
-    <section className="py-12 pb-20 xl:px-[60px] bg-brushed">
+    <section className="py-20 xl:px-[60px] bg-brushed">
       <div className="flex items-center gap-8">
         <div className="flex-shrink-0 w-[510px] h-[328px] p-8 bg-contain bg-center bg-no-repeat bg-[url(/contact.png)]"></div>
         <div className="flex-grow">

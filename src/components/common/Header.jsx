@@ -6,6 +6,7 @@ import IconEnvelop from "../icons/IconEnvelop"
 import IconFacebook from "../icons/IconFacebook"
 import IconInstagram from "../icons/IconInstagram"
 import IconXTwitter from "../icons/IconXTwitter"
+import LogoUrl from "@public/logo.png"
 
 function Header() {
   return (
@@ -53,12 +54,7 @@ function Header() {
           </li>
           <li>
             <Link href="#" className="py-2">
-              <Image
-                src="/logo-mandarin.png"
-                alt="Cruise Agency"
-                width={96}
-                height={96}
-              />
+              <Image src={LogoUrl} alt="Cruise Agency" width={105} />
             </Link>
           </li>
           <li>

@@ -5,7 +5,7 @@ function TravelRoutes(props) {
   const { data } = props
 
   return (
-    <section className="py-12 xl:px-[60px]">
+    <section className="py-12 pt-[105px]  xl:px-[60px]">
       <div className="text-center mb-12">
         <p className="text-lg text-primary-triadic-by-4">Lorem ipsum dolor</p>
         <h1 className="text-[50px] font-bold text-primary">
