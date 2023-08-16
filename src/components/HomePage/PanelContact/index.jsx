@@ -3,24 +3,26 @@ import ContactForm from "./ContactForm"
 
 function PanelContact() {
   return (
-    <section className="py-20 xl:px-[60px] bg-brushed">
-      <div className="flex items-center gap-8">
-        <div className="flex-shrink-0 w-[510px] h-[328px] p-8 bg-contain bg-center bg-no-repeat bg-[url(/contact.png)]"></div>
-        <div className="flex-grow">
-          <div className="mb-4">
-            <p className="text-lg text-primary-triadic-by-4">
-              Lorem ipsum dolor
-            </p>
-            <h1 className="text-[50px] font-bold leading-tight text-primary">
-              LOOKING FOR AN OUTTA BOX EXPERIENCE
-            </h1>
-            <p className="mb-8">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Repellendus, blanditiis quis magnam iure consequatur aut eius
-              delectus nulla.
-            </p>
+    <section className="py-20 bg-brushed">
+      <div className="container">
+        <div className="flex items-center justify-center gap-16 sm:p-8">
+          <div className="flex-shrink-0 w-[380px] h-[328px] bg-contain bg-center bg-no-repeat bg-[url(/contact.png)] 2xl:w-[510px] max-[919px]:hidden"></div>
+          <div className="flex-grow max-[919px]:max-w-[560px]">
+            <div className="mb-4">
+              <p className="text-lg text-primary-triadic-by-4">
+                Lorem ipsum dolor
+              </p>
+              <h1 className="text-[36px] font-bold leading-tight text-primary lg:text-[50px]">
+                LOOKING FOR AN OUTTA BOX EXPERIENCE
+              </h1>
+              <p className="mb-8">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Repellendus, blanditiis quis magnam iure consequatur aut eius
+                delectus nulla.
+              </p>
+            </div>
+            <ContactForm />
           </div>
-          <ContactForm />
         </div>
       </div>
     </section>

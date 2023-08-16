@@ -10,7 +10,7 @@ function TopSlider() {
         }}
       >
         <div className="text-center text-white translate-y-[56px] md:w-[760px] lg:w-[820px] lg:translate-y-[37%]">
-          <h1 className="text-[36px] font-bold leading-tight lg:text-[55px]">
+          <h1 className="text-[36px] font-bold leading-tight lg:text-[50px]">
             RELIABLE TRANSFER AGENCY IN VIETNAM
           </h1>
           <p className="text-lg mt-6">

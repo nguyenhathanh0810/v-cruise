@@ -21,7 +21,7 @@ function Header() {
     <header className="absolute inset-x-0 px-4 xl:px-[60px]">
       <div
         className={
-          "hidden text-white md:flex md:h-10 mmd:border-b md:border-[#ffffff80" +
+          "hidden text-white md:flex md:h-10 md:border-b md:border-[#ffffff80" +
           " " +
           italianno.className
         }
