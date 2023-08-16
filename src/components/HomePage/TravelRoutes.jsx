@@ -15,7 +15,7 @@ function TravelRoutes(props) {
           </h1>
         </div>
         <div>
-          <div className="grid grid-cols-1 gap-4 px-6">
+          <div className="grid grid-cols-1 gap-12 lg:gap-4">
             {data?.length > 0 &&
               data.map((r, idx) => (
                 <RouteCard key={idx} route={r} reversed={idx % 2 > 0} />
@@ -39,7 +39,7 @@ function RouteCard({ route, reversed }) {
     </div>
   )
   const Details = () => (
-    <div className="flex items-center p-12">
+    <div className="flex items-center p-4 -mt-4 lg:p-12">
       <div className="w-full">
         <div className="text-lg text-primary-triadic-by-4">
           Journey takes: {route.journeyTime} hours
@@ -61,18 +61,13 @@ function RouteCard({ route, reversed }) {
   )
 
   return (
-    <div className="grid grid-cols-2">
-      {!reversed ? (
-        <>
-          <Poster />
-          <Details />
-        </>
-      ) : (
-        <>
-          <Details />
-          <Poster />
-        </>
-      )}
+    <div className="grid lg:grid-cols-2">
+      <div className={"max-[1023px]:order-1" + (!reversed ? "" : " order-3")}>
+        <Poster />
+      </div>
+      <div className="order-2">
+        <Details />
+      </div>
     </div>
   )
 }

@@ -5,7 +5,7 @@ function PanelContact() {
   return (
     <section className="py-20 bg-brushed">
       <div className="container">
-        <div className="flex items-center justify-center gap-16 sm:p-8">
+        <div className="flex items-center justify-center gap-16 sm:p-6">
           <div className="flex-shrink-0 w-[380px] h-[328px] bg-contain bg-center bg-no-repeat bg-[url(/contact.png)] 2xl:w-[510px] max-[919px]:hidden"></div>
           <div className="flex-grow max-[919px]:max-w-[560px]">
             <div className="mb-4">
