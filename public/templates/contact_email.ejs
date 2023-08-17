@@ -1,0 +1,21 @@
+<p>Your have a new contact via <%= app.name %></p>
+<ul style="padding-left: 12px; display: flex; flex-direction: column; gap: 8px">
+  <li>
+    <b>Customer: </b>
+    <span style="font-size: 1.15em"><%= customer.fullname; %></span>
+  </li>
+  <li>
+    <b>Email: </b>
+    <span style="font-size: 1.15em"><%= customer.email; %></span>
+  </li>
+  <li>
+    <p style="margin: 0"><b>Message:</b></p>
+    <pre style="
+        font-size: 1.15em;
+        border: 1px solid #666;
+        border-radius: 4px;
+        padding: 8px;
+        display: inline-block;
+      "><%= customer.idea.trim(); %></pre>
+  </li>
+</ul>
