@@ -29,6 +29,7 @@ module.exports = {
           analogous: {
             "by-2": "#f7c95f",
             "by-3": "#f5623d",
+            "by-4": "#F5333D",
           },
           complementary: {
             "by-3": "#764e2d",

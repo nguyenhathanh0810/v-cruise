@@ -67,7 +67,7 @@ function Header() {
             >
               <IconBars size={24} />
             </button>
-            {sideMenuOpen === true ? (
+            {sideMenuOpen === true || true ? (
               <SideMenu
                 isOpen={sideMenuOpen}
                 onClose={() => setSideMenuOpen(false)}

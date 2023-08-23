@@ -13,24 +13,12 @@ import IconXTwitter from "../icons/IconXTwitter"
 import IconInstagram from "../icons/IconInstagram"
 import { useEffect } from "react"
 import IconAngleLeft from "../icons/IconAngleLeft"
+import { useDocumentNoScroll } from "@/hooks/useDocumentNoScroll"
 
 const italianno = Italianno({ subsets: ["latin"], weight: "400" })
 
 function SideMenu({ isOpen, onClose }) {
-  useEffect(() => {
-    const [$body, $html] = [document.body, document.body.parentElement]
-    const [bodyOverflow, htmlOverflow] = [
-      $body.style.overflow,
-      $html.style.overflow,
-    ]
-    $body.style.overflow = "hidden"
-    $html.style.overflow = "hidden"
-
-    return function () {
-      $body.style.overflow = bodyOverflow
-      $html.style.overflow = htmlOverflow
-    }
-  }, [])
+  useDocumentNoScroll(isOpen)
 
   if (!isOpen) return null
 
@@ -133,7 +121,7 @@ function SideMenu({ isOpen, onClose }) {
     </aside>
   )
 
-  return createPortal(<SideBar />, document.body)
+  return createPortal(<SideBar />, document.getElementById("app-layout"))
 }
 
 export default SideMenu

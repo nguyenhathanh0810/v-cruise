@@ -28,6 +28,8 @@ export default function RootLayout({ children }) {
             <Footer />
           </div>
         </div>
+        <div id="app-layout"></div>
+        <div id="modals"></div>
       </body>
     </html>
   )
