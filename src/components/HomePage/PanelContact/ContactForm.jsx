@@ -1,6 +1,10 @@
 "use client"
 import IconPaperPlane from "@/components/icons/IconPaperPlane"
-import React, { useReducer, useRef, useState } from "react"
+import SpinnerModal from "@/components/portals/SpinnerModal"
+import { useReducer, useState } from "react"
+import toast from "react-simple-toasts"
+import "react-simple-toasts/dist/theme/failure.css"
+import "react-simple-toasts/dist/theme/ocean-wave.css"
 
 const reducer = function (state, action) {
   if (action.type == "fullname_changed") {
@@ -64,6 +68,7 @@ function ContactForm() {
     emailError: "",
     ideaError: "",
   })
+  const [isSending, setSending] = useState(false)
 
   function onFullnameChange(e) {
     dispatch({
@@ -88,6 +93,7 @@ function ContactForm() {
 
   function handleSubmission(e) {
     e.preventDefault()
+    setSending(true)
 
     fetch("/api/contact", {
       method: "POST",
@@ -108,8 +114,26 @@ function ContactForm() {
             field: data.error.field,
             errorMessage: data.error.message,
           })
+          toast(<>Failure on sending your request.</>, {
+            theme: "failure",
+            duration: 5000,
+          })
         }
         dispatch({ type: "reset" })
+        toast(
+          <>
+            Thanks for your request.
+            <br />
+            Our consultant will reach out soon.
+          </>,
+          {
+            theme: "ocean-wave",
+            duration: 5000,
+          }
+        )
+      })
+      .finally(() => {
+        setSending(false)
       })
     return false
   }
@@ -169,6 +193,7 @@ function ContactForm() {
           </div>
         </div>
       </form>
+      {isSending ? <SpinnerModal isOpen={isSending} /> : null}
     </>
   )
 }

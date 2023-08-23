@@ -1,8 +1,7 @@
-import { NextResponse } from "next/server"
 import { sendMail } from "@/services/mailer"
 import ejs from "ejs"
+import { NextResponse } from "next/server"
 import path from "path"
-import { promises as fs } from "fs"
 
 export async function POST(request) {
   const { fullname, email, idea } = await request.json()
@@ -33,17 +32,36 @@ export async function POST(request) {
       },
     })
   }
+
+  let sent = false
+  try {
+    sent = await publishContact({ fullname, email, idea })
+  } catch (err) {
+    console.error(err)
+  }
+
+  return NextResponse.json({
+    info: { fullname, email, idea },
+    messageSent: sent,
+  })
+}
+
+async function publishContact(customer) {
+  let receivers
+  receivers = `${process.env.MAIL_SYSTEM_RECEIVERS}`
+    .split(",")
+    .map((r) => r.trim())
   const templatePath =
     path.join(process.cwd(), "public/templates") + "/contact_email.ejs"
   const content = await ejs.renderFile(templatePath, {
     app: {
       name: process.env.APP_NAME,
     },
-    customer: { fullname, email, idea },
+    customer,
   })
-  const sent = await sendMail([email], `Contact From <${fullname}>`, content)
-  return NextResponse.json({
-    info: { fullname, email, idea },
-    messageSent: sent,
-  })
+  return await sendMail(
+    receivers,
+    `[${process.env.APP_NAME} NEWS] Contact from <${customer.fullname}>`,
+    content
+  )
 }

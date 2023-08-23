@@ -11,8 +11,7 @@ const transporter = nodemailer.createTransport({
 
 export async function sendMail(receivers, subject, htmlBody) {
   if (!(receivers && receivers.length)) {
-    console.error("No receivers provided")
-    return false
+    throw new Error("No system receivers found")
   }
   const info = await transporter.sendMail({
     from: `"${process.env.MAIL_SENDER}" <${process.env.MAIL_USERNAME}>`,
