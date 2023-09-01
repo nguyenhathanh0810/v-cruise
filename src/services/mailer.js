@@ -21,5 +21,8 @@ export async function sendMail(receivers, subject, htmlBody) {
   })
   console.log("✔️ Message sent: ", info.messageId)
   console.log("  Preview at: ", nodemailer.getTestMessageUrl(info))
-  return true
+  return {
+    successful: true,
+    preview: nodemailer.getTestMessageUrl(info),
+  }
 }

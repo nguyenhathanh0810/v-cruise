@@ -19,6 +19,7 @@
 .DS_Store
 *.pem
 .materials
+http-client
 
 # debug
 npm-debug.log*

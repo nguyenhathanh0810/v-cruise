@@ -1,0 +1,19 @@
+<section>
+  <h2>Reservation Ticket</h2>
+  <h3>Customer information</h3>
+  <p>Full Name: <strong><%= customer.fullname %></strong></p>
+  <p>Email Address: <strong><%= customer.email %></strong></p>
+  <p>Phone Number: <strong><%= customer.phone %></strong></p>
+  <p>Passengers: <%= customer.passengers.adult || 0 %> adult - <%= customer.passengers.children || 0 %> children - <%= customer.passengers.infant || 0 %> infant</p>
+  <p>Pickup address: <strong><%= customer.pickup %></strong></p>
+
+  <h3>Service information</h3>
+  <p>Route: <strong><%= service.name %></strong></p>
+  <p>Departure time: <strong><%= service.departure %></strong></p>
+  <p>Arrival time: <strong><%= service.arrival %></strong></p>
+  <p>Inclusions: <strong><%- service.inclusions %></strong></p>
+  <p>Exclusions: <strong><%- service.exclusions %></strong></p>
+
+  <p>Thanks for counting on us for a safe and comfortable trip! We will see you onboard soon.</p>
+  <p>Mandarin's Team</p>
+</section>

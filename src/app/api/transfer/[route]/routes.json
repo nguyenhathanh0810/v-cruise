@@ -1,0 +1,26 @@
+[
+  {
+    "id": "cdpp",
+    "name": "CDPP: the everyday urban jungle of your city",
+    "backgroundImage": "/slideshow.jpeg",
+    "summary": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididu nt ut labore et dolore magna aliqua. Ut enim. ad minim veniam consectetur adipisicing elit, sed do eiusmod tempor incididu",
+    "journeyTime": 6.5,
+    "url": "#",
+    "departure": "7.30 AM",
+    "arrival": "2.00 PM",
+    "inclusions": "<ul><li>Food and Beverage</li><li>Pickup / Transfer (if specified)</li></ul>",
+    "exclusions": "<ul><li>Visa</li><li>Mid-journeys services</li></ul>"
+  },
+  {
+    "id": "ppcd",
+    "name": "PPCD: the everyday urban jungle of your city",
+    "backgroundImage": "/slideshow.jpeg",
+    "summary": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididu nt ut labore et dolore magna aliqua. Ut enim. ad minim veniam consectetur adipisicing elit, sed do eiusmod tempor incididu",
+    "journeyTime": 6.5,
+    "url": "#",
+    "departure": "7.30 AM",
+    "arrival": "2.00 PM",
+    "inclusions": "<ul><li>Food and Beverage</li><li>Pickup / Transfer (if specified)</li></ul>",
+    "exclusions": "<ul><li>Visa</li><li>Mid-journeys services</li></ul>"
+  }
+]
