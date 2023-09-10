@@ -1,6 +1,7 @@
 import PanelContact from "@/components/HomePage/PanelContact"
 import TopSlider from "@/components/HomePage/TopSlider"
 import TravelRoutes from "@/components/HomePage/TravelRoutes"
+import data from "@/app/api/transfer/[route]/routes.json"
 
 export default function Home() {
   return (
@@ -13,22 +14,3 @@ export default function Home() {
     </main>
   )
 }
-
-const data = [
-  {
-    caption: "Moving trough: the everyday urban jungle of your city",
-    backgroundImage: "/slideshow.jpeg",
-    summary:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididu nt ut labore et dolore magna aliqua. Ut enim. ad minim veniam consectetur adipisicing elit, sed do eiusmod tempor incididu",
-    journeyTime: 6.5,
-    url: "#",
-  },
-  {
-    caption: "Moving trough: the everyday urban jungle of your city",
-    backgroundImage: "/slideshow.jpeg",
-    summary:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididu nt ut labore et dolore magna aliqua. Ut enim. ad minim veniam consectetur adipisicing elit, sed do eiusmod tempor incididu",
-    journeyTime: 6.5,
-    url: "#",
-  },
-]

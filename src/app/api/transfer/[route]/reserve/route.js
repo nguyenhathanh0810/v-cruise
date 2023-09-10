@@ -5,18 +5,24 @@ import transferRoutes from "../routes.json"
 import template from "../template.ejs"
 
 export async function POST(req, { params }) {
-  const { route, customer } = await req.json()
+  const customer = await req.json()
+  const { route } = params
   let destination
   try {
     destination = validateRoute(route)
     validateCustomer(customer)
   } catch (error) {
+    let field = error.message.split(":")
+    field = field[0]
     return NextResponse.json({
-      error_code: error.message,
-      error_message:
-        error.message === "route:notfound"
-          ? "Invalid route"
-          : "Customer information invalid",
+      error: {
+        field,
+        code: error.message,
+        message:
+          error.message === "route:notfound"
+            ? "Invalid route"
+            : "Customer information invalid",
+      },
     })
   }
   let mailInfo
@@ -26,8 +32,11 @@ export async function POST(req, { params }) {
     console.error(err)
     return NextResponse.json({
       successful: false,
-      error_code: "mail:error",
-      error_message: err.message,
+      error: {
+        field: "mail",
+        code: "mail:error",
+        code: err.message,
+      },
     })
   }
   return NextResponse.json({
@@ -66,13 +75,13 @@ function validateRoute(route) {
 function validateCustomer(customer) {
   const $customer = customer || {}
   if (!$customer.fullname) {
-    throw new Error("customer:fullname:empty")
+    throw new Error("fullname:empty")
   }
-  if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test($customer.email)) {
-    throw new Error("customer:email:wrong_format")
+  if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,63}$/i.test($customer.email)) {
+    throw new Error("email:wrong_format")
   }
   const adult = parseInt(customer.passengers?.adult)
   if (isNaN(adult) || adult < 1) {
-    throw new Error("customer:passenger:adult:zero")
+    throw new Error("passenger:adult:zero")
   }
 }

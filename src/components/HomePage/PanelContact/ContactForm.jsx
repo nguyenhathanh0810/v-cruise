@@ -1,6 +1,7 @@
 "use client"
 import IconPaperPlane from "@/components/icons/IconPaperPlane"
 import SpinnerModal from "@/components/portals/SpinnerModal"
+import Link from "next/link"
 import { useReducer, useState } from "react"
 import toast from "react-simple-toasts"
 import "react-simple-toasts/dist/theme/failure.css"
@@ -20,7 +21,7 @@ const reducer = function (state, action) {
   }
   if (action.type == "email_changed") {
     let error = ""
-    if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(action.data)) {
+    if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,63}$/i.test(action.data)) {
       error = "Please use a valid email"
     }
     return {
@@ -125,10 +126,21 @@ function ContactForm() {
             Thanks for your request.
             <br />
             Our consultant will reach out soon.
+            <br />
+            {data.mailInfo.preview ? (
+              <Link
+                href={`${data.mailInfo.preview || "#"}`}
+                target="_blank"
+                rel="noreferrer"
+                className="underline"
+              >
+                Preview your email here
+              </Link>
+            ) : null}
           </>,
           {
             theme: "ocean-wave",
-            duration: 5000,
+            duration: 10000,
           }
         )
       })

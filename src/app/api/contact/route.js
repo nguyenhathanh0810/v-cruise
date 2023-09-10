@@ -14,7 +14,7 @@ export async function POST(request) {
       },
     })
   }
-  if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)) {
+  if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,63}$/i.test(email)) {
     return NextResponse.json({
       error: {
         field: "email",

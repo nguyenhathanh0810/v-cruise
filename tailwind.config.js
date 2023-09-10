@@ -46,6 +46,7 @@ module.exports = {
             "by-4": "#57466D",
           },
         },
+        dark: "#1f1f1f",
       },
     },
   },

@@ -20,3 +20,20 @@
     @apply hover:text-primary transition-colors duration-150;
   }
 }
+
+dialog:modal {
+  padding: 1rem;
+  border-radius: 0.25rem;
+  max-width: calc(100vw - 2rem);
+  max-height: calc(100vh - 2rem);
+  @media screen and (min-width: 768px) {
+    max-width: calc(768px - 2rem);
+  }
+  @media screen and (min-width: 1280px) {
+    max-width: calc(1280px - 2rem);
+  }
+}
+
+dialog:modal::backdrop {
+  background-color: rgba(0, 0, 0, 0.36);
+}
