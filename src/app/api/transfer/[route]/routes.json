@@ -1,7 +1,7 @@
 [
   {
     "id": "cdpp",
-    "name": "CDPP: the everyday urban jungle of your city",
+    "name": "Chau Doc to Phnom Penh: safe, comfortable, and exclusive",
     "backgroundImage": "/slideshow.jpeg",
     "summary": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididu nt ut labore et dolore magna aliqua. Ut enim. ad minim veniam consectetur adipisicing elit, sed do eiusmod tempor incididu",
     "journeyTime": 6.5,
@@ -13,7 +13,7 @@
   },
   {
     "id": "ppcd",
-    "name": "PPCD: the everyday urban jungle of your city",
+    "name": "Phnom Penh to Chau Doc: safe, comfortable, and exclusive",
     "backgroundImage": "/slideshow.jpeg",
     "summary": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididu nt ut labore et dolore magna aliqua. Ut enim. ad minim veniam consectetur adipisicing elit, sed do eiusmod tempor incididu",
     "journeyTime": 6.5,
