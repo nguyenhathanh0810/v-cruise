@@ -14,6 +14,8 @@ import IconInstagram from "../icons/IconInstagram"
 import { useEffect } from "react"
 import IconAngleLeft from "../icons/IconAngleLeft"
 import { useDocumentNoScroll } from "@/hooks/useDocumentNoScroll"
+import IconFacebookRounded from "../icons/IconFacebookRounded"
+import IconTripadvisor from "../icons/IconTripadvisor"
 
 const italianno = Italianno({ subsets: ["latin"], weight: "400" })
 
@@ -71,49 +73,47 @@ function SideMenu({ isOpen, onClose }) {
             </Link>
           </li>
         </ul>
-        <ul
-          className={
-            "flex-shrink-0 pb-4 text-[20px]" + " " + italianno.className
-          }
-        >
+        <ul className={"flex-shrink-0 pb-4"}>
           <li className="w-[25%] mx-auto mb-4 border-b border-primary-shades-by-3">
             {" "}
           </li>
           <li className="flex justify-center py-1">
-            <Link href="tel:+84379797979" className="flex items-center gap-2">
+            <Link href="tel:+849397778339" className="flex items-center gap-2">
               <IconPhone size={16} />
-              <span className="tracking-wider">
-                Phone/WhatsApp +84379797979
+              <span>
+                Phone/WhatsApp
+                <br />
+                (+84) 939777833
               </span>
             </Link>
           </li>
           <li className="flex justify-center py-1">
             <Link
-              href="mailto:cruise-angency@gmail.com"
+              href="mailto:mandarincruisesvn@gmail.com"
               className="flex items-center gap-2"
             >
               <IconEnvelop size={16} />
-              <span className="tracking-wider">
-                Mailbox cruise-angency@gmail.com
-              </span>
+              <span>mandarincruisesvn@gmail.com</span>
             </Link>
           </li>
           <li className="flex justify-center py-1">
-            <Link href="#" className="flex items-center gap-2">
-              <IconFacebook size={16} />
-              <span className="tracking-wider">Fanpage</span>
+            <Link
+              className="flex items-center gap-2"
+              href="https://www.facebook.com/MandarinCruises"
+              target="_blank"
+            >
+              <IconFacebookRounded size={18} />
+              <span>Fanpage</span>
             </Link>
           </li>
           <li className="flex justify-center py-1">
-            <Link href="#" className="flex items-center gap-2">
-              <IconXTwitter size={16} />
-              <span className="tracking-wider">Twitter X</span>
-            </Link>
-          </li>
-          <li className="flex justify-center py-1">
-            <Link href="#" className="flex items-center gap-2">
-              <IconInstagram size={16} />
-              <span className="tracking-wider">Instagram</span>
+            <Link
+              className="flex items-center gap-2"
+              href="https://www.tripadvisor.com.vn/Attraction_Review-g311303-d10117306-Reviews-Mandarin_Cruises-Chau_Doc_An_Giang_Province.html"
+              target="_blank"
+            >
+              <IconTripadvisor size={24} />
+              <span>Trip Advisor</span>
             </Link>
           </li>
         </ul>

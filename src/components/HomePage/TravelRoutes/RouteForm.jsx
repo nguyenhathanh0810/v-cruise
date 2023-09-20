@@ -1,3 +1,4 @@
+"use client"
 import InputInteger from "@/components/InputInteger"
 import InputText from "@/components/InputText"
 import SpinnerModal from "@/components/portals/SpinnerModal"
@@ -6,9 +7,12 @@ import React, { useEffect, useMemo, useState } from "react"
 import toast from "react-simple-toasts"
 import "react-simple-toasts/dist/theme/failure.css"
 import "react-simple-toasts/dist/theme/ocean-wave.css"
+import InputDateMask from "@/components/InputDateMask"
 
 const formReset = {
   fullname: "",
+  nationality: "",
+  depatureDate: "",
   email: "",
   phone: "",
   pickupAddress: "",
@@ -21,6 +25,8 @@ function RouteForm({ route, willSubmit, submitCallback, triggerClose }) {
   const [form, setForm] = useState({ ...formReset })
   const [errors, setErrors] = useState({
     fullname: "",
+    nationality: "",
+    depatureDate: "",
     email: "",
     adult: "",
     children: "",
@@ -32,8 +38,14 @@ function RouteForm({ route, willSubmit, submitCallback, triggerClose }) {
     if (hasError) {
       return false
     }
-    // when user has not type anything
-    return form.fullname && form.email && form.adult > 0
+    // when user has not typed anything
+    return (
+      form.fullname &&
+      form.email &&
+      form.adult > 0 &&
+      form.depatureDate &&
+      form.nationality
+    )
   }, [errors, form])
 
   useEffect(() => {
@@ -47,6 +59,8 @@ function RouteForm({ route, willSubmit, submitCallback, triggerClose }) {
           },
           body: JSON.stringify({
             fullname: form.fullname,
+            nationality: form.nationality,
+            depatureDate: form.depatureDate,
             email: form.email,
             phone: form.phone,
             pickup: form.pickupAddress,
@@ -133,6 +147,17 @@ function RouteForm({ route, willSubmit, submitCallback, triggerClose }) {
     }))
   }
 
+  function validateNationality(e) {
+    let warning = ""
+    if (!`${e.target.value}`.trim()) {
+      warning = "Nationality cannot be blank"
+    }
+    setErrors((prev) => ({
+      ...prev,
+      nationality: warning,
+    }))
+  }
+
   function validateEmail(e) {
     let warning = ""
     if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,63}$/i.test(e.target.value)) {
@@ -158,6 +183,53 @@ function RouteForm({ route, willSubmit, submitCallback, triggerClose }) {
     }))
   }
 
+  function handleDepartureOnMask(e) {
+    const date = new Date(e.detail.value)
+    if (isNaN(date)) {
+      setErrors((prev) => ({
+        ...prev,
+        depatureDate: "Please use a valid date",
+      }))
+      return
+    }
+    const isDateEfficient = (str) => {
+      try {
+        const _d = new Date(str)
+        const [m, d, y] = str.split("/").map((x) => parseInt(x))
+        return (
+          _d.getFullYear() === y &&
+          _d.getMonth() + 1 === m &&
+          _d.getDate() === d
+        )
+      } catch (error) {
+        return false
+      }
+    }
+    if (!isDateEfficient(e.target.value)) {
+      setErrors((prev) => ({
+        ...prev,
+        depatureDate: "Please use a valid datexx",
+      }))
+      return
+    }
+    let tomorrow = Date.now() + 86400000
+    if (date.getTime() < tomorrow) {
+      setErrors((prev) => ({
+        ...prev,
+        depatureDate: "Too close. Please pick a later date",
+      }))
+      return
+    }
+    setErrors((prev) => ({
+      ...prev,
+      depatureDate: "",
+    }))
+    setForm((prev) => ({
+      ...prev,
+      depatureDate: e.target.value,
+    }))
+  }
+
   return (
     <section>
       <h4 className="text-2xl text-center font-bold mb-4">
@@ -173,6 +245,24 @@ function RouteForm({ route, willSubmit, submitCallback, triggerClose }) {
               value={form.fullname}
               error={errors.fullname}
               onChange={(e) => handleTextChange(e, validateFullname)}
+            />
+          </div>
+          <div className="lg:col-span-3">
+            <InputText
+              label="Nationality (*)"
+              id="nationality"
+              placeholder=""
+              value={form.nationality}
+              error={errors.nationality}
+              onChange={(e) => handleTextChange(e, validateNationality)}
+            />
+          </div>
+          <div className="lg:col-span-3">
+            <InputDateMask
+              label="Departure Date (*)"
+              id="departureDate"
+              onMask={handleDepartureOnMask}
+              error={errors.depatureDate}
             />
           </div>
           <div className="lg:col-span-3">

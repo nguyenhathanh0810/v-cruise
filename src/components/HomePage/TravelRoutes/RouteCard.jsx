@@ -41,13 +41,19 @@ const Details = ({ route }) => {
     <div className="flex items-center p-4 -mt-4 lg:p-12">
       <div className="w-full">
         <div className="text-lg text-primary-triadic-by-4">
-          Journey takes: {route.journeyTime} hours
+          Duration: {route.journeyTime} hours
         </div>
         <div className="text-[29px] uppercase font-bold leading-tight">
           {route.name}
         </div>
         <p className="text-sm text-primary-triadic-by-4 ellipsis line-clamp-6 mt-2">
           {route.summary}
+        </p>
+        <p className="mt-2">
+          from{" "}
+          <span className="text-2xl text-primary font-bold">
+            ${route.price}
+          </span>
         </p>
         <div className="mt-8">
           <button

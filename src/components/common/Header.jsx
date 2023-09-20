@@ -1,18 +1,23 @@
 "use client"
+import LogoUrl from "@public/logo.png"
+import { Italianno, Noto_Sans } from "next/font/google"
 import Image from "next/image"
 import Link from "next/link"
-import React, { useState } from "react"
-import IconPhone from "../icons/IconPhone"
-import IconEnvelop from "../icons/IconEnvelop"
-import IconFacebook from "../icons/IconFacebook"
-import IconInstagram from "../icons/IconInstagram"
-import IconXTwitter from "../icons/IconXTwitter"
-import LogoUrl from "@public/logo.png"
-import { Italianno } from "next/font/google"
+import { useState } from "react"
 import IconBars from "../icons/IconBars"
+import IconEnvelop from "../icons/IconEnvelop"
+import IconFacebookRounded from "../icons/IconFacebookRounded"
+import IconPhone from "../icons/IconPhone"
+import IconTripadvisor from "../icons/IconTripadvisor"
 import SideMenu from "../portals/SideMenu"
 
 const italianno = Italianno({ subsets: ["latin"], weight: "400" })
+const noto = Noto_Sans({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400"],
+  variable: "--font-noto-sans",
+})
 
 function Header() {
   const [sideMenuOpen, setSideMenuOpen] = useState(false)
@@ -29,31 +34,35 @@ function Header() {
         <div className="flex flex-grow gap-8 items-center text-[20px]">
           <div className="flex items-center">
             <span className="mr-2">
-              <IconPhone size={14} />
+              <IconPhone size={16} />
             </span>
-            <Link href="tel:+84379797979">
-              <span className="tracking-wider">(+84) 379797979</span>
+            <Link href="tel:+84939777833">
+              <span className={`${noto.variable} ${noto.className} text-sm`}>
+                (+84) 939777833
+              </span>
             </Link>
           </div>
           <div className="flex items-center">
             <span className="mr-2">
-              <IconEnvelop size={14} />
+              <IconEnvelop size={16} />
             </span>
-            <Link href="mailto:cruise-angency@gmail.com">
-              <span className="tracking-wider">cruise-agency@gmail.com</span>
+            <Link href="mailto:mandarincruisesvn@gmail.com">
+              <span className={`${noto.variable} ${noto.className} text-sm`}>
+                mandarincruisesvn@gmail.com
+              </span>
             </Link>
           </div>
         </div>
         <div className="flex flex-shrink-0 gap-4 items-center">
           <i className="mr-2 text-[22px] tracking-wider">Socials</i>
-          <Link href="#">
-            <IconFacebook size={14} />
+          <Link href="https://www.facebook.com/MandarinCruises" target="_blank">
+            <IconFacebookRounded size={18} />
           </Link>
-          <Link href="#">
-            <IconInstagram size={14} />
-          </Link>
-          <Link href="#">
-            <IconXTwitter size={14} />
+          <Link
+            href="https://www.tripadvisor.com.vn/Attraction_Review-g311303-d10117306-Reviews-Mandarin_Cruises-Chau_Doc_An_Giang_Province.html"
+            target="_blank"
+          >
+            <IconTripadvisor size={24} />
           </Link>
         </div>
       </div>
@@ -83,7 +92,7 @@ function Header() {
           </li>
           <li>
             <Link href="#" className="py-2">
-              <Image src={LogoUrl} alt="Cruise Agency" width={105} />
+              <Image src={LogoUrl} alt="Cruise Agency" width={135} />
             </Link>
           </li>
           <li className="hidden md:list-item">

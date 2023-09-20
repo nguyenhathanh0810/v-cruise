@@ -26,16 +26,22 @@ function ModalRequestRoute({ isOpen, onClose, routeData }) {
     <dialog ref={dialogRef} className="transition-transform duration-200">
       <section className="lg:p-6">
         <div className="mb-12">
-          <RouteForm
-            route={routeData.id}
-            willSubmit={willSubmit}
-            submitCallback={() => setWillSubmit(false)}
-            triggerClose={onClose}
-          />
+          {isOpen ? (
+            <RouteForm
+              route={routeData.id}
+              willSubmit={willSubmit}
+              submitCallback={() => setWillSubmit(false)}
+              triggerClose={onClose}
+            />
+          ) : null}
         </div>
         <div className="mb-12">
           <RouteInformation routeData={routeData} />
         </div>
+        <p className="mb-2 text-sm italic">
+          * In order to process your request, please fill out all mandatory
+          (with *) information
+        </p>
         <div className="flex flex-wrap items-center justify-center gap-4 mt-8">
           <button
             className="min-w-[110px] inline-flex gap-2 items-center justify-center bg-slate-400 hover:bg-slate-500 focus:outline-none focus:ring focus:ring-slate-400 active:bg-slate-500 px-6 py-3 text-sm rounded-sm font-semibold text-white"
