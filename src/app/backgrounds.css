@@ -12,3 +12,10 @@
   background-position: center;
   background-repeat: no-repeat;
 }
+
+.contact-form__bg {
+  backdrop-filter: blur(3px);
+  background-color: #ffffff63;
+  padding: 36px;
+  border-radius: 6px;
+}

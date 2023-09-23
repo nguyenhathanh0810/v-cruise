@@ -12,7 +12,7 @@ import InputDateMask from "@/components/InputDateMask"
 const formReset = {
   fullname: "",
   nationality: "",
-  depatureDate: "",
+  departureDate: "",
   email: "",
   phone: "",
   pickupAddress: "",
@@ -26,7 +26,7 @@ function RouteForm({ route, willSubmit, submitCallback, triggerClose }) {
   const [errors, setErrors] = useState({
     fullname: "",
     nationality: "",
-    depatureDate: "",
+    departureDate: "",
     email: "",
     adult: "",
     children: "",
@@ -43,7 +43,7 @@ function RouteForm({ route, willSubmit, submitCallback, triggerClose }) {
       form.fullname &&
       form.email &&
       form.adult > 0 &&
-      form.depatureDate &&
+      form.departureDate &&
       form.nationality
     )
   }, [errors, form])
@@ -60,7 +60,7 @@ function RouteForm({ route, willSubmit, submitCallback, triggerClose }) {
           body: JSON.stringify({
             fullname: form.fullname,
             nationality: form.nationality,
-            depatureDate: form.depatureDate,
+            departureDate: form.departureDate,
             email: form.email,
             phone: form.phone,
             pickup: form.pickupAddress,
@@ -89,9 +89,9 @@ function RouteForm({ route, willSubmit, submitCallback, triggerClose }) {
             triggerClose?.()
             toast(
               <>
-                Thanks for your request.
+                Thanks for your reservation request.
                 <br />
-                Our consultant will reach out soon.
+                Our consultant will contact in more details within 24 hours.
                 <br />
                 {data.mailInfo.preview ? (
                   <Link
@@ -106,7 +106,7 @@ function RouteForm({ route, willSubmit, submitCallback, triggerClose }) {
               </>,
               {
                 theme: "ocean-wave",
-                duration: 10000,
+                duration: 30000,
               }
             )
           })
@@ -188,7 +188,7 @@ function RouteForm({ route, willSubmit, submitCallback, triggerClose }) {
     if (isNaN(date)) {
       setErrors((prev) => ({
         ...prev,
-        depatureDate: "Please use a valid date",
+        departureDate: "Please use a valid date",
       }))
       return
     }
@@ -208,7 +208,7 @@ function RouteForm({ route, willSubmit, submitCallback, triggerClose }) {
     if (!isDateEfficient(e.target.value)) {
       setErrors((prev) => ({
         ...prev,
-        depatureDate: "Please use a valid datexx",
+        departureDate: "Please use a valid datexx",
       }))
       return
     }
@@ -216,17 +216,17 @@ function RouteForm({ route, willSubmit, submitCallback, triggerClose }) {
     if (date.getTime() < tomorrow) {
       setErrors((prev) => ({
         ...prev,
-        depatureDate: "Too close. Please pick a later date",
+        departureDate: "Too close. Please pick a later date",
       }))
       return
     }
     setErrors((prev) => ({
       ...prev,
-      depatureDate: "",
+      departureDate: "",
     }))
     setForm((prev) => ({
       ...prev,
-      depatureDate: e.target.value,
+      departureDate: e.target.value,
     }))
   }
 
@@ -262,7 +262,7 @@ function RouteForm({ route, willSubmit, submitCallback, triggerClose }) {
               label="Departure Date (*)"
               id="departureDate"
               onMask={handleDepartureOnMask}
-              error={errors.depatureDate}
+              error={errors.departureDate}
             />
           </div>
           <div className="lg:col-span-3">

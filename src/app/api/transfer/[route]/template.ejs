@@ -4,7 +4,8 @@
   <p>Full Name: <strong><%= customer.fullname %></strong></p>
   <p>Email Address: <strong><%= customer.email %></strong></p>
   <p>Phone Number: <strong><%= customer.phone %></strong></p>
-  <p>Passengers: <%= customer.passengers.adult || 0 %> adult - <%= customer.passengers.children || 0 %> children - <%= customer.passengers.infant || 0 %> infant</p>
+  <p>Passengers: <strong><%= customer.passengers.adult || 0 %> adult</strong> - <strong><%= customer.passengers.children || 0 %> children</strong> - <strong><%= customer.passengers.infant || 0 %> infant</strong></p>
+  <p>Departure date: <strong><%= customer.departureDate %></strong></p>
   <p>Pickup address: <strong><%= customer.pickup %></strong></p>
 
   <h3>Service information</h3>

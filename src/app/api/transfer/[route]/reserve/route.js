@@ -27,7 +27,22 @@ export async function POST(req, { params }) {
   }
   let mailInfo
   try {
-    mailInfo = await publishReservation(customer, destination)
+    mailInfo = await publishReservation(
+      {
+        ...customer,
+        departureDate: new Date(customer.departureDate).toLocaleDateString(
+          undefined,
+          {
+            timeZone: "Asia/Ho_Chi_Minh",
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          }
+        ),
+      },
+      destination
+    )
   } catch (err) {
     console.error(err)
     return NextResponse.json({
@@ -58,7 +73,7 @@ async function publishReservation(customer, service) {
     customer,
   })
   return await sendMail(
-    [customer.email, ...receivers],
+    [/*customer.email,*/ ...receivers],
     `[${process.env.APP_NAME} RESERVATION] Ticket from <${customer.fullname}>`,
     content
   )
@@ -80,8 +95,38 @@ function validateCustomer(customer) {
   if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,63}$/i.test($customer.email)) {
     throw new Error("email:wrong_format")
   }
-  const adult = parseInt(customer.passengers?.adult)
+  const adult = parseInt($customer.passengers?.adult)
   if (isNaN(adult) || adult < 1) {
     throw new Error("passenger:adult:zero")
+  }
+  if (!$customer.nationality) {
+    throw new Error("nationality:empty")
+  }
+  validateDepartureDate($customer.departureDate)
+}
+
+function validateDepartureDate(dateStr) {
+  const departureDate = new Date(dateStr)
+  if (isNaN(departureDate)) {
+    throw new Error("departureDate:wrong_format")
+  }
+  if (!isDateEfficient(dateStr)) {
+    throw new Error("departureDate:invalid")
+  }
+  let tomorrow = Date.now() + 86400000
+  if (departureDate.getTime() < tomorrow) {
+    throw new Error("departureDate:too_close")
+  }
+}
+
+const isDateEfficient = (str) => {
+  try {
+    const _d = new Date(str)
+    const [m, d, y] = str.split("/").map((x) => parseInt(x))
+    return (
+      _d.getFullYear() === y && _d.getMonth() + 1 === m && _d.getDate() === d
+    )
+  } catch (error) {
+    return false
   }
 }
