@@ -6,7 +6,7 @@ function TravelRoutes(props) {
   return (
     <section className="py-12 pt-[105px]">
       <div className="container">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12" id="panel-travel-routes">
           <p className="text-lg text-primary-triadic-by-4">Lets jump in</p>
           <h1 className="text-[36px] font-bold leading-tight text-primary lg:text-[50px]">
             ULTIMATE <br className="xl:hidden" />

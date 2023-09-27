@@ -16,8 +16,10 @@
 }
 
 @layer base {
-  a[href] {
+  a[href],
+  a.menu-item {
     @apply hover:text-primary transition-colors duration-150;
+    @apply cursor-pointer;
   }
 }
 

@@ -28,7 +28,7 @@ function ModalRequestRoute({ isOpen, onClose, routeData }) {
         <div className="mb-12">
           {isOpen ? (
             <RouteForm
-              route={routeData.id}
+              route={routeData}
               willSubmit={willSubmit}
               submitCallback={() => setWillSubmit(false)}
               triggerClose={onClose}

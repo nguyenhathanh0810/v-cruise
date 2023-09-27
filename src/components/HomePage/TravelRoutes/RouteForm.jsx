@@ -16,6 +16,7 @@ const formReset = {
   email: "",
   phone: "",
   pickupAddress: "",
+  transferAddress: "",
   adult: 1,
   children: 0,
   infant: 0,
@@ -52,7 +53,7 @@ function RouteForm({ route, willSubmit, submitCallback, triggerClose }) {
     if (willSubmit && isFormValid) {
       function submit() {
         setIsSending(true)
-        fetch(`/api/transfer/${route}/reserve`, {
+        fetch(`/api/transfer/${route.id}/reserve`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -64,6 +65,7 @@ function RouteForm({ route, willSubmit, submitCallback, triggerClose }) {
             email: form.email,
             phone: form.phone,
             pickup: form.pickupAddress,
+            transfer: form.transferAddress,
             passengers: {
               adult: form.adult,
               children: form.children,
@@ -118,7 +120,7 @@ function RouteForm({ route, willSubmit, submitCallback, triggerClose }) {
     }
 
     return () => submitCallback?.()
-  }, [willSubmit, isFormValid, submitCallback, route, form, triggerClose])
+  }, [willSubmit, isFormValid, submitCallback, route.id, form, triggerClose])
 
   function handleTextChange(e, postValidator) {
     setForm((prev) => ({
@@ -285,15 +287,28 @@ function RouteForm({ route, willSubmit, submitCallback, triggerClose }) {
               onChange={handleTextChange}
             />
           </div>
-          <div className="lg:col-span-3">
-            <InputText
-              label="Pickup address"
-              id="pickupAddress"
-              placeholder="Where could we pick you up? (optional)"
-              value={form.pickupAddress}
-              onChange={handleTextChange}
-            />
-          </div>
+          {route.pickup ? (
+            <div className="lg:col-span-3">
+              <InputText
+                label="Pickup from"
+                id="pickupAddress"
+                placeholder="Where could we pick you up?"
+                value={form.pickupAddress}
+                onChange={handleTextChange}
+              />
+            </div>
+          ) : null}
+          {route.transfer ? (
+            <div className="lg:col-span-3">
+              <InputText
+                label="Transfer to"
+                id="transferAddress"
+                placeholder="Where could we transfer you to?"
+                value={form.transferAddress}
+                onChange={handleTextChange}
+              />
+            </div>
+          ) : null}
           <div className="lg:col-span-2">
             <InputInteger
               label="Adult (*, minimum at 1)"

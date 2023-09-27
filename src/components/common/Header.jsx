@@ -3,7 +3,7 @@ import LogoUrl from "@public/logo.png"
 import { Italianno, Noto_Sans } from "next/font/google"
 import Image from "next/image"
 import Link from "next/link"
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import IconBars from "../icons/IconBars"
 import IconEnvelop from "../icons/IconEnvelop"
 import IconFacebookRounded from "../icons/IconFacebookRounded"
@@ -21,6 +21,30 @@ const noto = Noto_Sans({
 
 function Header() {
   const [sideMenuOpen, setSideMenuOpen] = useState(false)
+  const refDestinationMenu = useRef(null)
+  const refContactMenu = useRef(null)
+
+  useEffect(() => {
+    refDestinationMenu.current.addEventListener(
+      "click",
+      scrollTo("panel-travel-routes")
+    )
+    refContactMenu.current.addEventListener("click", scrollTo("panel-contact"))
+  }, [])
+
+  function scrollTo(id) {
+    const el = document.getElementById(id)
+    console.log({ el })
+    if (!el) {
+      return
+    }
+    return () =>
+      el.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "nearest",
+      })
+  }
 
   return (
     <header className="absolute inset-x-0 px-4 xl:px-[60px]">
@@ -84,11 +108,11 @@ function Header() {
             ) : null}
           </li>
           <li className="hidden md:list-item">
-            <Link href="#">
+            <a className="menu-item" ref={refDestinationMenu}>
               <span className="uppercase text-lg font-semibold">
                 DESTINATIONS
               </span>
-            </Link>
+            </a>
           </li>
           <li>
             <Link href="#" className="py-2">
@@ -96,11 +120,11 @@ function Header() {
             </Link>
           </li>
           <li className="hidden md:list-item">
-            <Link href="#">
+            <a className="menu-item" ref={refContactMenu}>
               <span className="uppercase text-lg font-semibold">
                 CONTACT US
               </span>
-            </Link>
+            </a>
           </li>
         </ul>
       </nav>

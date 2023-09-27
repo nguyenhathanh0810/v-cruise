@@ -6,7 +6,12 @@
   <p>Phone Number: <strong><%= customer.phone %></strong></p>
   <p>Passengers: <strong><%= customer.passengers.adult || 0 %> adult</strong> - <strong><%= customer.passengers.children || 0 %> children</strong> - <strong><%= customer.passengers.infant || 0 %> infant</strong></p>
   <p>Departure date: <strong><%= customer.departureDate %></strong></p>
-  <p>Pickup address: <strong><%= customer.pickup %></strong></p>
+  <% if (customer.pickup) { %>
+  <p>Pickup from: <strong><%= customer.pickup %></strong></p>
+  <% } %>
+  <% if (customer.transfer) { %>
+  <p>Transfer to: <strong><%= customer.transfer %></strong></p>
+  <% } %>
 
   <h3>Service information</h3>
   <p>Route: <strong><%= service.name %></strong></p>
